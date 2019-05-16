@@ -51,6 +51,6 @@ public class uiController : MonoBehaviour
         quitGameBut.gameObject.SetActive(false);
         restartBut.gameObject.SetActive(false);
     }
-    public void PlayGame() => SceneManager.LoadScene(SceneBuildIndex);
+
     public void QuitGame() => Application.Quit();
 }
