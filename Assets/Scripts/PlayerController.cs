@@ -45,11 +45,10 @@ public class PlayerController : MonoBehaviour
         anim.SetBool("isJump", false);
     }
     
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.transform.tag == "Gem")
         {
-            Debug.LogError("gem", col);
             IncScore();
             Destroy(col.gameObject);
         }
@@ -61,7 +60,7 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    private void IncScore()
+    public void IncScore()
     {
         score++;
     }
