@@ -4,15 +4,26 @@ using UnityEngine;
 
 public class Eagle : movingEnemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public Transform firePoint;
+    public GameObject bull;
+    public GameObject bul;
+    int time;
+    private void Start()
     {
-        
+        time = 0;
     }
-
-    // Update is called once per frame
     void Update()
     {
-        
+        GetComponent<Rigidbody2D>().velocity = new Vector2(speedEnemy, 0);
+        time++;
+        if (time > 250)
+        {
+            Attack();
+            time = 0;
+        }
+    }
+    public override void Attack()
+    {
+        Instantiate(bull, firePoint.position, firePoint.rotation);
     }
 }

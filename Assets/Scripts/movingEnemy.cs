@@ -14,7 +14,7 @@ public class movingEnemy : Enemy
     public bool canTurn = true;
     public BoxCollider2D col1;
     public BoxCollider2D col2;
-    public void Update()
+    void Update()
     {
         GetComponent<Rigidbody2D>().velocity = new Vector2(speedEnemy, 0);
     }
@@ -55,4 +55,5 @@ public class movingEnemy : Enemy
         Destroy(this.gameObject);
         isDie = true;
     }
+    public virtual void Attack() { }
 }

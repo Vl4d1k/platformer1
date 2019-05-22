@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class Opposum : movingEnemy
 {
-    // Start is called before the first frame update
-    void Start()
+    public void Attack()
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        if (health == 40)
+        {
+            StartCoroutine("wait");
+            flip();
+            speedEnemy *= -4;
+        }
     }
 }

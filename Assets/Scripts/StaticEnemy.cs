@@ -8,7 +8,6 @@ public class StaticEnemy : Enemy
     public bool isDie;
     public GameObject deathEffect;
     public GameObject ef;
-
     public void TakeDamage(int damage)
     {
         health -= damage;

@@ -13,22 +13,18 @@ public class uiController : MonoBehaviour
     public Button quitGameBut;
     public Button restartBut;
     int gameOverPos = -6;
-
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
     }
-    // Update is called once per frame
     void Update()
     {
-        //GameOverLogic
         if(player.gameObject.transform.position.y < gameOverPos)
         {
             GameOverText.gameObject.SetActive(true);
             restartBut.gameObject.SetActive(true);
             quitGameBut.gameObject.SetActive(true);
-            Time.timeScale = 0;//stop moving
+            Time.timeScale = 0;
         }
     }
     public void OnTriggerEnter2D(Collider2D col)
@@ -38,7 +34,7 @@ public class uiController : MonoBehaviour
             WinGameText.gameObject.SetActive(true);
             restartBut.gameObject.SetActive(true);
             quitGameBut.gameObject.SetActive(true);
-            Time.timeScale = 0;//stop moving
+            Time.timeScale = 0;
         }
     }
     public void restartGame()
@@ -48,6 +44,5 @@ public class uiController : MonoBehaviour
         quitGameBut.gameObject.SetActive(false);
         restartBut.gameObject.SetActive(false);
     }
-
     public void QuitGame() => Application.Quit();
 }
