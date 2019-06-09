@@ -5,6 +5,7 @@ using UnityEngine;
 public class StaticEnemy : Enemy
 {
     public int health = 80;
+    public bool isDie;
     public GameObject deathEffect;
     public GameObject ef;
     public void TakeDamage(int damage)
@@ -15,7 +16,7 @@ public class StaticEnemy : Enemy
             Die();
         }
     }
-    public void Die()
+    public override void Die()
     {
         ef = Instantiate(deathEffect, transform.position, Quaternion.identity);
         Destroy(this.gameObject);

@@ -8,16 +8,13 @@ public class PlayerController : MonoBehaviour
     public CharacterController2D controller;
     public Animator anim;
     public Text scoreText;
-    public float movementSpeed;//speed
-
+    public float movementSpeed;
     float horizontalMovementSpeed;
     bool isJump = false;
     bool isHurt = false;
-
     int score;
     public BoxCollider2D boxCol;
     public CircleCollider2D circlrCol;
-    // Start is called before the first frame update
     void Start()
     {
         anim = GetComponent<Animator>();
@@ -26,8 +23,6 @@ public class PlayerController : MonoBehaviour
         isHurt = false;
         score = 0;
     }
-
-    // Update is called once per frame
     void Update()
     {
         scoreText.text = score.ToString();
@@ -44,12 +39,10 @@ public class PlayerController : MonoBehaviour
         isJump = false;
         anim.SetBool("isJump", false);
     }
-    
-    void OnTriggerEnter2D(Collider2D col)
+    public void OnTriggerEnter2D(Collider2D col)
     {
         if (col.gameObject.transform.tag == "Gem")
         {
-            Debug.LogError("gem", col);
             IncScore();
             Destroy(col.gameObject);
         }
@@ -60,12 +53,10 @@ public class PlayerController : MonoBehaviour
                 circlrCol.enabled = false;
         }
     }
-
-    private void IncScore()
+    public void IncScore()
     {
         score++;
     }
-
     void FixedUpdate()
     {
         controller.Move(horizontalMovementSpeed * Time.fixedDeltaTime, false, isJump);

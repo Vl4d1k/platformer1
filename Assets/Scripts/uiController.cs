@@ -12,18 +12,13 @@ public class uiController : MonoBehaviour
     public Text WinGameText;
     public Button quitGameBut;
     public Button restartBut;
-
     int gameOverPos = -6;
-
-    // Start is called before the first frame update
     void Start()
     {
         Time.timeScale = 1;
     }
-    // Update is called once per frame
     void Update()
     {
-        //GameOverLogic
         if(player.gameObject.transform.position.y < gameOverPos)
         {
             GameOverText.gameObject.SetActive(true);
@@ -44,13 +39,10 @@ public class uiController : MonoBehaviour
     }
     public void restartGame()
     {
-        Debug.LogError("test");
-        //SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         SceneManager.LoadScene(sceneBuildIndex: 1);
         WinGameText.gameObject.SetActive(false);
         quitGameBut.gameObject.SetActive(false);
         restartBut.gameObject.SetActive(false);
     }
-
     public void QuitGame() => Application.Quit();
 }
